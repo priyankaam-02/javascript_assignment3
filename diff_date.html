@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.Difference b/w 2 dates</title>
+</head>
+<body>
+    <script>
+        function date_diff_indays(date1,date2){
+            data1=new Date(date1);
+            data2=new Date(date2);
+            let data = Math.floor((Date.UTC(data2.getFullYear(),data2.getMonth(),data2.getDate())-
+            Date.UTC(data1.getFullYear(),data1.getMonth(),data1.getDate()))/(1000*60*60*24));
+            return data;
+        }
+        console.log(date_diff_indays('04/02/2014', '11/04/2014'));
+        console.log(date_diff_indays('12/02/2014', '11/04/2014'));
+    </script>
+</body>
+</html>

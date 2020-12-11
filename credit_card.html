@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.Validate Credit card</title>
+</head>
+<body>
+    <script>
+    function validateCreditCard(num){
+    if(num.length!=16){
+        return false;
+    }
+    for(let i=0;i<num.length;i++){
+        let current_num=num[i];
+        current_num=Number.parseInt(current_num);
+        if(!Number.isInteger(current_num)){
+            return false;
+        }
+    }
+    let obj={};
+    for(let i=0;i<num.length;i++){
+        obj[num[i]]=true;
+    }
+    if(Object.keys(obj).length<2){
+        return false;
+    }
+    if(num[num.length-1]%2!=0){
+        return false;
+    }
+    let sum=0;
+    for(let i=0;i<num.length;i++){
+        sum+=Number(num[i]);
+    }
+    if(sum<16){
+        return false;
+    }
+    return true;
+};
+console.log("validateCreditCard('9999777788880000')"+validateCreditCard('9999777788880000'));
+console.log(validateCreditCard('6666666666661666')); 
+console.log(validateCreditCard('a92332119c011112')); 
+console.log(validateCreditCard('4444444444444444')); 
+console.log(validateCreditCard('1211111111111112'));
+</script>
+</body>
+</html>
